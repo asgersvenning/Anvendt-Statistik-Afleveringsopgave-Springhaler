@@ -1,0 +1,36 @@
+h1 {
+  text-align: center;
+}
+
+h3 {
+  font-weight: bold;
+}
+
+p, li {
+  font-size: 18px;
+}
+
+blockquote {
+  color: gray;
+}
+
+#TOC ul {
+    list-style-type: disclosure-closed;
+    font-size: 20px;
+    padding: 5px;
+    padding-left: 25px;
+}
+
+#TOC ul ul {
+    list-style-type: decimal;
+}
+
+#TOC li {
+    padding-left: 20px;
+    padding-bottom: 2.5px;
+    padding-top: 2.5px;	
+}
+
+::marker {
+    font-size: 18px;
+}
