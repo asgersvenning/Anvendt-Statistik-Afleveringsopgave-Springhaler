@@ -47,6 +47,7 @@ trace(grDevices::png, quote({
 }), print = FALSE)
 ```
 
+
 </br>
 
 # Format 
@@ -110,7 +111,7 @@ DroughtTemp <- read_xlsx("Data/Data opg2 - springhaler.xlsx",
 
 # Tasks
 
-Please answer the following questions using R and write a report. (Hint: Temperature is most appropriate to analyze as a categorical variable)
+
 
 
 </br>
