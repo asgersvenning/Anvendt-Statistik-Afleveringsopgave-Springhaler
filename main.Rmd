@@ -488,7 +488,7 @@ $$=-1.6829 \frac{h}{y}+1.350555\cdot h+24.76271$$
 This function can be visually represented in 2d-space by having *hours* and *osmolality* on the axis and coloring by *temperature*. 
 
 ```{r,webgl=T}
-test <- tibble(Hours = rep(list(seq(0,2000,1)),2000), Osmolality = seq(0.001,2,0.001)) %>% 
+test <- tibble(Hours = rep(list(seq(0,400,0.5)),2000), Osmolality = seq(0.001,2,0.001)) %>% 
   unnest(Hours) %>% 
   mutate(Temperature = -1.6829 * Hours/Osmolality + 1.350555 * Hours + 24.76271) 
 
@@ -499,7 +499,7 @@ test %>%
   geom_point(data=OsmoTime, aes(x=Hours,y=Osmolality, color = Temperature), fill = "black") +
   scale_fill_viridis_c(option = "inferno") +
   scale_color_viridis_d(option = "inferno") +
-  coord_cartesian(ylim=c(0,(0.8025)^-1), xlim=c(0,2000), expand=F) +
+  coord_cartesian(ylim=c(0,(0.8025)^-1), xlim=c(0,400), expand=F) +
   theme_minimal() +
   ggsave("temperatureContinousOld.png",type="cairo-png")
 ```
