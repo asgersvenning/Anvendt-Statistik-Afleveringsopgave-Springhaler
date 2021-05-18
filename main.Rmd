@@ -198,6 +198,7 @@ ggplot(OsmoTime, aes(x = Hours^-1, y = Osmolality^-1, color = Temperature)) +
         strip.text = element_text(family = "Georgia",
                                   face = "bold",
                                   size = 14))
+1
 ```
 
 From which we observe a clear positive correlation between reciprocal *osmolality* and *hours*, and maybe a lower slope for higher temperatures. However we must again move on to the quantitative analyses before we reach conclusions.
@@ -348,7 +349,7 @@ osmoLM %>%
   plot(1:2)
 
 ```
-
+ hej  med jer
 
 </br>
 
