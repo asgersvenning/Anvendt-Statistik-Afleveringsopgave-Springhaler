@@ -340,6 +340,8 @@ osmoLM %>%
 ```
 We see from the __Normal Q-Q plot__ that the dataset is approximatly normal distrubuted. 
 
+On the graph that shows residuals vs. fitted indicate the model have some fauls. This graph indicate that our model is better at predicting lower values then higher values. But there isn't at clear tendensy, and therefor the model is accepted.  
+
 </br>
 
 ## Compare and discuss the results of tasks 1 and 4.
