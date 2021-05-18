@@ -173,7 +173,7 @@ Which show no clear trend and a reasonable normal distribution in the residuals.
 </br>
 
 ## Use the above saturation model and the dataset "Osmolality with time". Fit the best line to each of the four temperature.
-<sub>*(hint: use 1/Osmolality and 1/Hours as y and x variables, respectively)*</sub>
+
 
 Again we first investigate visually, then move on to the quantitative model:
 ```{r}
