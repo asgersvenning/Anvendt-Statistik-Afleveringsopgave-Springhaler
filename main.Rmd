@@ -180,6 +180,7 @@ ggplot(OsmoTime, aes(x = Hours^-1, y = Osmolality^-1, color = Temperature)) +
   geom_smooth(method = "lm", fullrange = T) +
   facet_wrap(~paste0(Temperature, "\u00B0C")) +
   scale_color_brewer(palette = "Dark2") +
+  labs(y = TeX("\\textbf{Osmolality^{-1}}"), x = TeX("\\textbf{Hours^{-1}}")) +
   theme_bw() +
   theme(legend.position = "none",
         axis.title = element_text(family = "Georgia",
