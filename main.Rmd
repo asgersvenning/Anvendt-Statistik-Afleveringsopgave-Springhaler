@@ -468,7 +468,7 @@ OsmoTime %>%
   scale_fill_brewer(palette = "Dark2")
 ```
 
-### What if temperature was a continous variable?
+## What if temperature was a continous variable?
 By considering temperature as a continous variable instead of as a categorical variable, we can explore the effect of temperature on the progression of osmolality outside the studied temperature-space:
 ```{r}
 tempCont <- read_xlsx("Data/Data opg2 - springhaler.xlsx", 
