@@ -349,7 +349,7 @@ osmoLM %>%
   plot(1:2)
 
 ```
- hej  med jer
+
 
 </br>
 
