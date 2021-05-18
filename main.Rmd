@@ -345,15 +345,9 @@ osmoLM %>%
 ```
 We see from the __Normal Q-Q plot__ that the dataset is approximately normal distributed. 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 The residual plot shows a random pattern which indicates a linear model with a good fit. But the plot also have some flaws. We see a higher fit on the lower values compared to the higher values this is most likely caused by a having more datapoints at lower values of _osmolality_ an thus a better fit on lower values. This is because it is not as relavant to look at data points after the asymptope is reached.
-=======
-The residual plot shows a random pattern which indicates a linear model with a good fit. But the plot also have some flaws. We see a higher fit on the lower values compared to the higher values this is most likely caused by a having more datapoints at lower values of osmolality an thus a better fit on lower values. This is because it is not as relevant to look at data points after the asymptop is reached.
->>>>>>> e8aed98d5328a4bc3e82d84b0155490ee02e87ba
-=======
-The residual plot shows a random pattern which indicates a linear model with a good fit. But the plot also have some flaws. We see a higher fit on the lower values compared to the higher values this is most likely caused by a having more datapoints at lower values of osmolality an thus a better fit on lower values. This is because it is not as relevant to look at data points after the asymptop is reached.
->>>>>>> e8aed98d5328a4bc3e82d84b0155490ee02e87ba
+
 
 </br>
 
