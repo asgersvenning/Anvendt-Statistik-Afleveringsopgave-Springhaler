@@ -166,6 +166,7 @@ par(mfrow = c(1,2))
 droughtLM %>% 
   plot(1:2)
 ```
+From this analysis we can observe from  _Residuals vs Fitted plot_ that the residuals are randomly distribtuted on either side of the residual trend line. Furthermore the _Normal Q-Q plot_ shows that the dataset is approximatly normal distrubuted. 
 Which show no clear trend and a reasonable normal distribution in the residuals. 
 
 
