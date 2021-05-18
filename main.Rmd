@@ -271,7 +271,7 @@ osmoAnova3 %>%
   column_spec(5, background = if_else(osmoAnova3$`Pr(>F)` < 0.05, "", "red", ""))
 ```
 Where we see a drastic fall in Sum of Squares for *temperature* between type II & III, corresponding to inclusion of interaction terms in the model before calculating Sum of Squares in type-III. This is highly critical for the additive effect of *temperature*, and implies that instead *temperature* has an interactive effect with *hours*.
-We thus find no significant effect of *temperature* on asymptotic *osmolality*, but the additive effect between *hours* we observe that *temperature* have an significant effect.
+We thus find no significant effect of *temperature* on asymptotic *osmolality*, but we observe a significant additive effect between *temperature* and *hours*.
 
 
 </br>
