@@ -102,7 +102,7 @@ DroughtTemp %>% paged_table()
 
 # Tasks
 
-Please answer the following questions using R and write a report. (Hint: Temperature is most appropriate to analyze as a categorical variable)
+
 
 
 </br>
