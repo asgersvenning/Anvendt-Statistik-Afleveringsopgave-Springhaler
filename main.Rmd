@@ -431,37 +431,12 @@ ggarrange(plotlist = plots)
 
 ```{r}
 OsmoTime %>% 
-  group_by(interval = cut_interval(Hours,10)) %>% 
-  summarize(mean = mean(Osmolality),
-            sd = sd(Osmolality)/n()) %>% 
-  ggplot(aes(x = interval, y = mean, 
-             ymin = mean - sd, ymax = mean + sd)) +
-  geom_point() +
-  geom_errorbar(width=0.2)
-
-OsmoTime %>% 
-  group_by(interval = cut_interval(Hours,5), Temperature) %>% 
-  summarize(mean = mean(Osmolality),
-            sd = sd(Osmolality)/n()) %>% 
-  mutate(intervalList = interval %>% as.character() %>% 
-           str_remove_all("\\[|\\(|\\)|\\]") %>% 
-           str_split(",")) %>% 
-  unnest_wider(intervalList) %>% 
-  mutate(...1 = as.numeric(...1),
-         ...2 = as.numeric(...2)) %>% 
-  ggplot(aes(ymin = mean - sd, ymax = mean + sd, 
-             xmin = ...1, xmax = ...2)) +
-  geom_rect() +
-  facet_wrap(~Temperature)
-
-OsmoTime %>% 
   ggplot(aes(x = Hours^-1, y = Osmolality^-1, 
              color = Temperature, fill = Temperature,
              group = Temperature)) +
   stat_summary_bin(fun.data = "mean_se",
                    geom = "ribbon", alpha = 0.25) +
   stat_summary_bin(fun.data = "mean_se") +
-  geom_point() + 
   geom_smooth(method = "lm", fullrange = T,
               color = "black", fill = "black",
               alpha = 0.15, size = 0.25) +
