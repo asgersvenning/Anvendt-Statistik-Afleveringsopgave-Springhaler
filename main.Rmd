@@ -3,14 +3,15 @@ title: "Anvendt Statistik - Hand-in assignment 2"
 author: "<center> Jakob B., Peter B., Mads G., Asger S. </center>"
 date: "<center> `r Sys.Date()` </center>"
 output:
-  pdf_document:
-    toc: yes
   html_document:
     css: stylesheetStatistik.css
     highlight: kate
     theme: united
     toc: yes
     toc-title: Table of Contents
+    number_sections: TRUE
+  pdf_document:
+    toc: yes
 ---
 
 ```{r setup, include=FALSE}
@@ -31,6 +32,7 @@ library(rgl)
 library(viridis)
 library(readxl)
 library(car)
+library(extrafont)
 
 knitr::opts_chunk$set(echo = T, message = FALSE, 
                       fig.height=10,fig.width=10, fig.align = "center", warning = FALSE)
@@ -45,6 +47,16 @@ trace(grDevices::png, quote({
 }), print = FALSE)
 ```
 
+
+</br>
+
+# Format 
+
+Make an English written report of 6-8 pages totally. Include Tables and codes from R.
+The names of all students that have been making the exercise have to be listed.
+
+
+</br>
 
 # Background 
 
@@ -93,16 +105,13 @@ OsmoTime <- read_xlsx("Data/Data opg2 - springhaler.xlsx",
 DroughtTemp <- read_xlsx("Data/Data opg2 - springhaler.xlsx", 
                          sheet = "Effect of drought and temp") %>% 
   mutate_at(c("Temperature","Treatment"),factor)
-
-OsmoTime %>% paged_table()
-DroughtTemp %>% paged_table()
 ```
 
 </br>
 
 # Tasks
 
-Please answer the following questions using R and write a report. (Hint: Temperature is most appropriate to analyze as a categorical variable)
+
 
 
 </br>
