@@ -175,10 +175,16 @@ From this analysis we can observe from  __Residuals vs Fitted plot__ that the re
 
 Again we first investigate visually, then move on to the quantitative model:
 ```{r}
-ggplot(OsmoTime, aes(x = Hours^-1, y = Osmolality^-1, color = Temperature)) +
+labels <- lapply(c(5,10,15,20), FUN = function(x) paste0(x, "\u00B0C")) %>% 
+  unlist %>% 
+  setNames(OsmoTime$Temperature %>% levels)
+
+OsmoTime %>% 
+  arrange(Temperature %>% as.numeric) %>% 
+  ggplot(aes(x = Hours^-1, y = Osmolality^-1, color = Temperature)) +
   geom_point() +
   geom_smooth(method = "lm", fullrange = T) +
-  facet_wrap(~paste0(Temperature, "\u00B0C")) +
+  facet_wrap(~Temperature, labeller = as_labeller(labels)) +
   scale_color_brewer(palette = "Dark2") +
   labs(y = TeX("\\textbf{Osmolality^{-1}}"), x = TeX("\\textbf{Hours^{-1}}")) +
   theme_bw() +
@@ -187,7 +193,6 @@ ggplot(OsmoTime, aes(x = Hours^-1, y = Osmolality^-1, color = Temperature)) +
                                   face = "bold",
                                   size = 14),
         strip.text = element_text(family = "Georgia",
-                                  face = "bold",
                                   size = 14))
 ```
 
@@ -493,14 +498,15 @@ test <- tibble(Hours = rep(list(seq(0,400,0.5)),2000), Osmolality = seq(0.001,2,
   mutate(Temperature = -1.6829 * Hours/Osmolality + 1.350555 * Hours + 24.76271) 
 
 test %>%   
-  filter(between(Temperature,5,20),Osmolality<(0.8025)^-1) %>% 
+  filter(between(Temperature,5,20)) %>% 
   ggplot(aes(x = Hours, y = Osmolality, fill = Temperature)) +
   geom_raster() +
   geom_point(data=OsmoTime, aes(x=Hours,y=Osmolality, color = Temperature), fill = "black") +
   scale_fill_viridis_c(option = "inferno") +
   scale_color_viridis_d(option = "inferno") +
-  coord_cartesian(ylim=c(0,(0.8025)^-1), xlim=c(0,400), expand=F) +
+  coord_cartesian(ylim=c(0,1.5), xlim=c(0,400), expand=F) +
   theme_minimal() +
   ggsave("temperatureContinousOld.png",type="cairo-png")
 ```
+
 
