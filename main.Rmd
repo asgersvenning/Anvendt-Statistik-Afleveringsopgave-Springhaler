@@ -89,7 +89,7 @@ In the Excel workbook “Data - springhaler” there are two datasets:
 
 ```{r}
 OsmoTime <- read_xlsx("Data/Data opg2 - springhaler.xlsx", 
-                      sheet = "Osmolality with time") %>% 
+                      sheet = "Osmolality with time")  %>% 
   mutate_at(c("Temperature"),factor)
 
 DroughtTemp <- read_xlsx("Data/Data opg2 - springhaler.xlsx", 
@@ -452,7 +452,6 @@ OsmoTime %>%
              group = Temperature)) +
   stat_summary_bin(fun.data = "mean_se",
                    geom = "ribbon", alpha = 0.25) +
-  stat_summary_bin(fun.data = "mean_se") +
   geom_point() + 
   geom_smooth(method = "lm", fullrange = T,
               color = "black", fill = "black",
@@ -460,6 +459,49 @@ OsmoTime %>%
   facet_wrap(~Temperature, scale = "free") +
   scale_color_brewer(palette = "Dark2") +
   scale_fill_brewer(palette = "Dark2")
+```
+
+### What if temperature was a continous variable?
+By considering temperature as a continous variable instead of as a categorical variable, we can explore the effect of temperature on the progression of osmolality outside the studied temperature-space:
+```{r}
+tempCont <- read_xlsx("Data/Data opg2 - springhaler.xlsx", 
+                      sheet = "Osmolality with time")
+tempContLM <- tempCont %>% 
+  mutate(Osmolality = Osmolality^-1,
+         Hours = Hours^-1) %>% 
+  lm(Osmolality ~ Hours:Temperature + Hours, data = .)
+
+tempContLM
+```
+
+We now get a formula for osmolality as follows:
+
+$$y^{-1} = (\alpha_h+\alpha_T\cdot T)\cdot h^{-1}+\beta$$
+Where $y$ is *osmolality*, $h$ is hours, $T$ is *temperature*, $\alpha_h$ is the coefficient of *hours* ("slope"), while $\alpha_T$ is the interaction coefficient of *temperature* on *hours* and $\beta$ is the intercept. We can then isolate *temperature* ($T$):
+
+$$h(y^{-1}-\beta)=\alpha_h + \alpha_T \cdot T$$
+$$T=\frac{\frac{h}{y}-\beta\cdot h-\alpha_h}{\alpha_T}=\alpha_T^{-1}\frac{h}{y}-\alpha_T^{-1}\beta\cdot h-\alpha_T^{-1}\alpha_h$$
+Then *temperature* can be modelled as a function of *hours* and *osmolality* as follows:
+
+$$T(h,y)=\frac{1}{-0.5942}\frac{h}{y}-\frac{0.8025}{-0.5942}\cdot h - \frac{14.7140}{-0.5942}$$
+$$=-1.6829 \frac{h}{y}+1.350555\cdot h+24.76271$$
+This function can be visually represented in 2d-space by having *hours* and *osmolality* on the axis and coloring by *temperature*. 
+
+```{r,webgl=T}
+test <- tibble(Hours = rep(list(seq(0,2000,1)),2000), Osmolality = seq(0.001,2,0.001)) %>% 
+  unnest(Hours) %>% 
+  mutate(Temperature = -1.6829 * Hours/Osmolality + 1.350555 * Hours + 24.76271) 
+
+test %>%   
+  filter(between(Temperature,5,20),Osmolality<(0.8025)^-1) %>% 
+  ggplot(aes(x = Hours, y = Osmolality, fill = Temperature)) +
+  geom_raster() +
+  geom_point(data=OsmoTime, aes(x=Hours,y=Osmolality, color = Temperature), fill = "black") +
+  scale_fill_viridis_c(option = "inferno") +
+  scale_color_viridis_d(option = "inferno") +
+  coord_cartesian(ylim=c(0,(0.8025)^-1), xlim=c(0,2000), expand=F) +
+  theme_minimal() +
+  ggsave("temperatureContinousOld.png",type="cairo-png")
 ```
 
 
