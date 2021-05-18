@@ -216,7 +216,7 @@ osmoLM$coefficients %>%
 </br>
 
 ## Use the above saturation model and the dataset "Osmolality with time". Is there an effect of temperature on the asymptotic osmolality?
-<sub>*(hint: make one model with all the lines in task 3 and compare the use of both Type II and Type III tests)*</sub>
+
 
 To answer the question of whether *temperature* has an effect on the asymptotic *osmolality*, we must first understand how to interpret the asymptotic *osmolality* from our model outputs. To understand this, we must first find an expression of the asymptotic *osmolality* from the original model:
 
