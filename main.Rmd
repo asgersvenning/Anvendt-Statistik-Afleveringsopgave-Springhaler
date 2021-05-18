@@ -347,6 +347,7 @@ And we thus find the estimated time to reach the half saturation point at 15 deg
 par(mfrow = c(1,2))
 osmoLM %>% 
   plot(1:2)
+tissemand
 ```
 
 
