@@ -15,14 +15,14 @@ blockquote {
 }
 
 #TOC ul {
-    list-style-type: disclosure-closed;
+    list-style-type: none;
     font-size: 20px;
     padding: 5px;
     padding-left: 25px;
 }
 
 #TOC ul ul {
-    list-style-type: decimal;
+    list-style-type: none;
 }
 
 #TOC li {
