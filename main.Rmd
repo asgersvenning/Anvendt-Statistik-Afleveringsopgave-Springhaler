@@ -153,7 +153,7 @@ droughtCoef %>%
 ```
 
 Which (unsurprisingly) confirms our suspicions from the visual analysis; the effect of *treatment* is large and statistically significant, while the effect of *temperature* is small and not statistically significant.
-This means that the springtails' osmolality is effected by the drought but that the temperature does not have a signifikant effect on springtails' osmolality.
+This concludes that the springtails' osmolality is effected by the drought but that the temperature does not have a signifikant effect on springtails' osmolality.
 
 
 </br>
