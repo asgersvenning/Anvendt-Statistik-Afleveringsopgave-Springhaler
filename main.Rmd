@@ -338,7 +338,7 @@ osmoLM %>%
   plot(1:2)
 
 ```
-
+We see from the __Normal Q-Q plot__ that the dataset is approximatly normal distrubuted. 
 
 </br>
 
