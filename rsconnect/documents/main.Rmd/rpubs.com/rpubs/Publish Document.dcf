@@ -4,7 +4,7 @@ username:
 account: rpubs
 server: rpubs.com
 hostUrl: rpubs.com
-appId: https://api.rpubs.com/api/v1/document/768267/de2fac0ff1414a228fc4cd37ce4fd535
-bundleId: https://api.rpubs.com/api/v1/document/768267/de2fac0ff1414a228fc4cd37ce4fd535
-url: http://rpubs.com/AsgerSvenning/768267
-when: 1620817721.64271
+appId: https://api.rpubs.com/api/v1/document/771102/5095c5013b5d4c8f995f12da5cf17b36
+bundleId: https://api.rpubs.com/api/v1/document/771102/5095c5013b5d4c8f995f12da5cf17b36
+url: http://rpubs.com/publish/claim/771102/04fb4063a03c4bbc848a87212e313ace
+when: 1621340183.05254
